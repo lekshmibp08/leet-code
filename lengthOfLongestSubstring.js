@@ -19,16 +19,21 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 
 var lengthOfLongestSubstring = function(s) {
     let currSubstring = '';
-   let maxSubstring = '';
-   for(let i = 0; i < s.length; i++) {
-    let index = currSubstring.indexOf(s[i]);
-    if(index !== -1) {
-        currSubstring = currSubstring.slice(index+1);
+    let maxSubstring = '';
+    for(let i = 0; i < s.length; i++) {
+        let index = currSubstring.indexOf(s[i]);
+        if(index !== -1) {
+            console.log(currSubstring);
+            currSubstring = currSubstring.slice(index+1);
+            console.log(currSubstring);
+            
+        }
+        currSubstring += s[i];
+        if(maxSubstring.length < currSubstring.length) {
+            maxSubstring = currSubstring;
+        }
     }
-    currSubstring += s[i];
-    if(maxSubstring.length < currSubstring.length) {
-        maxSubstring = currSubstring;
-    }
-   }
-   return maxSubstring.length
+    return maxSubstring.length
 };
+
+console.log(lengthOfLongestSubstring('pwwkew'));
